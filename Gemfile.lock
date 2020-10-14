@@ -3,7 +3,7 @@ PATH
   specs:
     debitcredit (1.0.0.pre.pre.1)
       docile
-      rails (~> 6.0)
+      rails (~> 6.0.3)
 
 GEM
   remote: https://rubygems.org/
