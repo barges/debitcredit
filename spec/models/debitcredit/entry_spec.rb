@@ -118,10 +118,34 @@ module Debitcredit
       end
     end
 
+    describe '.extend' do
+      it 'should add more entries' do
+        expect(@equipment.reload.balance).to eq(10_000)
+        expect(@amex.reload.balance).to eq(10_000)
+        inverse = entry.inverse()
+        inverse.extend_entry do
+          debit @equipment, 100
+          credit @amex, 100
+        end
+        inverse.save!
+        expect(@equipment.reload.balance).to eq(100)
+        expect(@amex.reload.balance).to eq(100)
+      end
+    end
+
     describe '.inverse' do
       it 'should be valid' do
         inverse = entry.inverse()
         expect(inverse).to be_valid
+      end
+
+      it 'should save balances' do
+        expect(@equipment.reload.balance).to eq(10_000)
+        expect(@amex.reload.balance).to eq(10_000)
+        inverse = entry.inverse()
+        inverse.save!
+        expect(@equipment.reload.balance).to eq(0)
+        expect(@amex.reload.balance).to eq(0)
       end
 
       it 'should take description and kind' do
