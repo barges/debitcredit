@@ -24,6 +24,11 @@ module Debitcredit
     attr_accessor :is_inverse
     attr_accessor :ignore_overdraft
 
+    def extend_entry(&block)
+      raise "Cannot extend a saved entry" if persisted?
+      Docile.dsl_eval(Dsl.new(self), &block)
+    end
+
     def inverse(opts = {})
       self.class.new({ignore_overdraft: true, is_inverse: true}.merge(opts)) do |res|
         res.items = items.map(&:inverse)
