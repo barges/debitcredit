@@ -119,6 +119,15 @@ module Debitcredit
     end
 
     describe '.extend' do
+      it 'should not allow extending saved entries' do
+        expect {
+          entry.extend_entry do
+            debit @equipment, 100
+            credit @amex, 100
+          end
+        }.to raise_error(StandardError, "Cannot extend a saved entry")
+      end
+
       it 'should add more entries' do
         expect(@equipment.reload.balance).to eq(10_000)
         expect(@amex.reload.balance).to eq(10_000)
