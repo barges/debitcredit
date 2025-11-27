@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2015_01_06_165647) do
+ActiveRecord::Schema[7.1].define(version: 2015_01_06_165647) do
   create_table "debitcredit_accounts", force: :cascade do |t|
     t.string "name", limit: 32, null: false
     t.string "type", limit: 32, null: false
     t.integer "reference_id"
     t.string "reference_type", limit: 32
     t.decimal "balance", precision: 20, scale: 2, default: "0.0", null: false
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "overdraft_enabled", default: false, null: false
     t.index ["name", "reference_id", "reference_type"], name: "uindex", unique: true
   end
@@ -28,8 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2015_01_06_165647) do
     t.string "reference_type", limit: 32
     t.string "kind"
     t.string "description", null: false
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "parent_entry_id"
     t.integer "inverse_entry_id"
     t.index ["parent_entry_id"], name: "index_debitcredit_entries_on_parent_entry_id"
@@ -43,8 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2015_01_06_165647) do
     t.string "comment"
     t.decimal "amount", precision: 20, scale: 2, default: "0.0", null: false
     t.decimal "balance", precision: 20, scale: 2, default: "0.0", null: false
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_debitcredit_items_on_account_id"
     t.index ["entry_id"], name: "index_debitcredit_items_on_entry_id"
   end

@@ -31,7 +31,8 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "spec/fixtures"
+  # Rails 7.1+: use fixture_paths (plural) instead of fixture_path (singular)
+  config.fixture_paths = ["spec/fixtures"]
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
