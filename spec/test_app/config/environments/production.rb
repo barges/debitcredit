@@ -17,6 +17,8 @@ Rails.application.configure do
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
   # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
   # `config/secrets.yml.key`.
+  # Note: This is deprecated in Rails 7.1 in favor of credentials.
+  # Keeping for backward compatibility with test app.
   config.read_encrypted_secrets = true
 
   # Disable serving static files from the `/public` folder by default since
@@ -68,7 +70,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger           = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
