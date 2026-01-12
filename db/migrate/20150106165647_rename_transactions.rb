@@ -1,4 +1,4 @@
-class RenameTransactions < ActiveRecord::Migration[7.1]
+class RenameTransactions < ActiveRecord::Migration[7.2]
   def change
     rename_table :debitcredit_transactions, :debitcredit_entries
     rename_column :debitcredit_entries, :parent_transaction_id, :parent_entry_id

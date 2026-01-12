@@ -1,4 +1,4 @@
-class NoOverdraftByDefault < ActiveRecord::Migration[7.1]
+class NoOverdraftByDefault < ActiveRecord::Migration[7.2]
   def up
     change_column_default :debitcredit_accounts, :overdraft_enabled, false
   end

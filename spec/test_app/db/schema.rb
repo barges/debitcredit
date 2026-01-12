@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2015_01_06_165647) do
+ActiveRecord::Schema[7.2].define(version: 2015_01_06_165647) do
   create_table "debitcredit_accounts", force: :cascade do |t|
     t.string "name", limit: 32, null: false
     t.string "type", limit: 32, null: false
@@ -54,5 +54,4 @@ ActiveRecord::Schema[7.1].define(version: 2015_01_06_165647) do
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
   end
-
 end

@@ -1,4 +1,4 @@
-class AddAccountOverdraft < ActiveRecord::Migration[7.1]
+class AddAccountOverdraft < ActiveRecord::Migration[7.2]
   def change
     add_column :debitcredit_accounts, :overdraft_enabled, :boolean, null: false, default: true
   end
