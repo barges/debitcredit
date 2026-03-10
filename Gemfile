@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Ruby 3.3.10 is required (specified in gemspec)
+# ruby '3.3.10'
+
 # Declare your gem's dependencies in debitcredit.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
